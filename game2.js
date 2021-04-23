@@ -1,3 +1,5 @@
+
+// Variable declarations
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById('progressText');
@@ -13,12 +15,11 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions =[];
 
+//fetching questions from the open source library
 let questions = [];
 fetch("https://opentdb.com/api.php?amount=10&category=9"
 
-
 )
-
 .then(res => {
   return res.json();
 })
@@ -52,6 +53,8 @@ fetch("https://opentdb.com/api.php?amount=10&category=9"
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 10;
 
+
+//startgame function
 startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -63,6 +66,8 @@ startGame = () => {
 
   };
   
+
+  // loading new question 
   getNewQuestion = () => {
 
       if (availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS ){
@@ -91,6 +96,7 @@ startGame = () => {
       acceptingAnswers = true;
     };
 
+    // answer choice function  
     choices.forEach(choice => {
         choice.addEventListener('click', e =>{
             if(!acceptingAnswers) return;
@@ -122,6 +128,7 @@ startGame = () => {
         });
     });
 
+    
     incrementScore = num => {
         score += num;
         scoreText.innerText = score;
