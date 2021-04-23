@@ -15,6 +15,13 @@ finalScore.innerText = mostRecentScore;
 username.addEventListener("keyup", () => {
     //console.log(username.value);
    saveScoreBtn.disabled = !username.value;
+
+
+});
+
+test.addEventListener("keyup", () => {
+    //console.log(username.value);
+
    saveScoreBtn.disabled = !test.value;
 
 });
